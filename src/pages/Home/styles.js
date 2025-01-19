@@ -36,20 +36,68 @@ export const Button = styled.button`
   padding: 10px;
   font-size: 1.2rem;
   color: #fff;
-  background: #007bff;
+  background: ${(props) => (props.disabled ? "#cccccc" : "#007bff")};
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
   &:hover {
-    background: #0056b3;
+    background: ${(props) => (props.disabled ? "#cccccc" : "#0056b3")};
+  }
+
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 `;
 
-export const Result = styled.div`
-  margin-top: 20px;
-  padding: 10px;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+export const StyledHTML = styled.div`
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .section-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .section-list {
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  .list-item {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .code-block {
+    background: #f7f9fc;
+    border-left: 4px solid #007bff;
+    padding: 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: #333;
+    white-space: pre-wrap;
+  }
 `;
